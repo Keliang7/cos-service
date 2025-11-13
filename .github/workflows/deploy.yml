@@ -33,5 +33,13 @@ jobs:
       - name: Build and push Docker image
         run: |
           TAG=$(date +%Y%m%d_%H%M%S)
-          docker build -t ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:${TAG} .
+
+          docker build --platform linux/amd64 \
+            -t ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:${TAG} .
+
           docker push ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:${TAG}
+
+          docker tag ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:${TAG} \
+                     ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:latest
+
+          docker push ${{env.REGISTRY}}/${{env.NAME_SPACE}}/${{env.IMAGE}}:latest
