@@ -1,0 +1,44 @@
+# 忽略 node_modules
+node_modules
+
+# 忽略本地构建输出（防止本地构建结果被复制到镜像）
+dist
+dist-pro
+build
+
+# 忽略配置文件的备份或临时文件
+*.log
+*.gz
+*.zip
+*.tmp
+*.bak
+
+# 忽略 IDE/编辑器配置文件
+.vscode/
+.idea/
+*.swp
+
+# 忽略 Git 文件
+.git
+.gitignore
+
+# 忽略操作系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略 npm 和 Yarn 的缓存
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# 忽略测试文件
+test/
+tests/
+spec/
+
+# 忽略readme
+readme.md
+readme.*.md
+README.md
+README.*.md
